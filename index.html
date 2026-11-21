@@ -4,20 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#121e31">
-<title>MIKI Industrial Lab · Diagnóstico 01</title>
-<style>
-:root{--bg:#eceff1;--ink:#19273a;--dark:#121e31;--dark2:#1e3049;--line:#dce2e6;--muted:#627183;--accent:#ecab41;--ok:#168568;--err:#ad403f;--paper:#fff;--blue:#3a6e9a;--sky:#d7e9f5}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;font-size:14px}button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #e8a53a;outline-offset:3px}.wrap{max-width:1480px;margin:auto;padding:22px}.masthead{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:16px 20px;background:#121e31;color:white;border-radius:18px}.wordmark{display:flex;align-items:center;gap:12px}.logo{width:40px;height:40px;border-radius:11px;background:var(--accent);color:#131b27;display:grid;place-items:center;font-size:22px;font-weight:900}.wordmark strong{display:block;font-size:16px;letter-spacing:.025em}.wordmark small{color:#aebed0;font-size:12px}.topmeta{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.chip{border:1px solid #415168;color:#dce5ef;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:700;letter-spacing:.035em}.title{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin:24px 2px 20px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:850;font-size:11px;color:#63768b}.title h1{font-size:clamp(26px,3vw,38px);letter-spacing:-.045em;line-height:1.1;margin:7px 0}.title p{margin:0;color:var(--muted);line-height:1.5;max-width:790px}.help{font-size:12px;color:#6a7889}.main{display:grid;grid-template-columns:minmax(0,1.34fr) minmax(360px,.86fr);gap:16px}.stack{display:grid;gap:16px;align-content:start}.card{background:var(--paper);border:1px solid #d6dfe5;border-radius:17px;overflow:hidden;box-shadow:0 4px 14px #182b3a08}.cardhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line)}.cardhead h2{font-size:15px;margin:0;letter-spacing:-.01em}.muted{font-size:12px;color:var(--muted)}.pad{padding:18px}.callout{border-left:4px solid var(--accent);background:#fff7e9;padding:14px 17px;border-radius:9px;line-height:1.5}.callout b{font-weight:800}.plant{position:relative;background:#131f30;border-radius:14px;min-height:340px;overflow:hidden;color:#edf5f9;border:1px solid #253d5b}.plant:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#ffffff06 1px,transparent 1px),linear-gradient(#ffffff06 1px,transparent 1px);background-size:26px 26px;pointer-events:none}.plant .label{position:absolute;top:20px;left:22px;color:#a8c0d5;font-size:11px;letter-spacing:.13em;font-weight:700}.plant svg{display:block;width:100%;height:340px}.machineTag{fill:#e4f0f8;font-family:Arial,sans-serif;font-size:13px;font-weight:700}.machineSub{fill:#9bb5cc;font-family:Arial,sans-serif;font-size:10px}.statusBox{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}.statusItem{background:#f4f7f8;border:1px solid #dce4e8;border-radius:10px;padding:12px 10px;min-width:0}.statusItem small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#6a7a88;font-size:9px;font-weight:800}.statusItem strong{display:block;margin-top:5px;font-size:17px}.statusItem strong.good{color:var(--ok)}.statusItem strong.bad{color:var(--err)}.ctrl{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{border-radius:10px;padding:11px 15px;font-weight:750;border:1px solid #cbd8e0;background:white;color:#23364b}.btn:hover{background:#f5f8fa}.btn.primary{background:#203c56;border-color:#203c56;color:white}.btn.primary:hover{background:#345b7a}.btn.stop{background:#f8e7e6;border-color:#e9c9c6;color:#903834}.btn.alt{background:#fff8ee;border-color:#edd4a9;color:#6d4b10}.btn:disabled{opacity:.48;cursor:not-allowed}.tabs{display:flex;gap:5px;flex-wrap:wrap;padding:12px;border-bottom:1px solid var(--line);background:#fafbfc}.tabs button{border:0;border-radius:9px;padding:9px 12px;background:transparent;color:#506277;font-size:12px;font-weight:780}.tabs button.active{background:#213d59;color:white}.tabview{display:none;padding:20px;min-height:355px}.tabview.active{display:block}.tabview h3{margin:0 0 9px;font-size:16px}.tabview p{line-height:1.55;color:#58697b;margin:0 0 14px}.schematic{display:grid;gap:14px}.schematicRow{padding:16px;background:#f6f8fa;border:1px solid #dfe7eb;border-radius:12px}.schematicRow h4{margin:0 0 10px;font-size:11px;color:#66778c;text-transform:uppercase;letter-spacing:.08em}.chain{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.node{border:1px solid #adc1ce;background:#fff;color:#233a4e;border-radius:8px;min-width:52px;padding:10px;font-size:12px;font-weight:800;text-align:center}.arrow{font-weight:800;color:#7791a5}.note{margin-top:12px;font-size:11px;color:#6a7d8f}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:11px;padding:6px 9px;background:#edf3f6;border:1px solid #dce7ee;border-radius:7px;color:#435c73}.bits{display:grid;grid-template-columns:1fr 1fr;gap:9px}.bit{padding:11px 13px;border-radius:10px;background:#f5f8fa;border:1px solid #dce5e9;display:flex;align-items:center;justify-content:space-between;gap:10px}.bit small{font-size:11px;color:#50657b}.bit strong{font-size:14px;display:flex;gap:6px;align-items:center}.bit strong:before{content:"";width:8px;height:8px;border-radius:50%;background:#b6c1c9}.bit strong.on{color:var(--ok)}.bit strong.on:before{background:#16a17f}.bit strong.off{color:#7b8490}.bit strong.off:before{background:#b9bec4}.measurement{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch}.measurement select{width:100%;border:1px solid #c4d3db;border-radius:10px;padding:12px;color:#24354a;background:white}.meter{background:#273642;border:10px solid #4d5962;border-radius:16px;display:grid;place-items:center;min-height:132px;color:#d8f2c3;font-family:ui-monospace,Consolas,monospace}.meter .read{font-size:37px;font-weight:850}.meter small{color:#b1c8b7;font-size:10px}.log{list-style:none;padding:0;margin:0;display:grid;gap:8px;max-height:270px;overflow:auto}.log li{font-size:12px;color:#40566b;padding:11px 13px;border-radius:9px;background:#f3f6f8;border:1px solid #e4e9ec;line-height:1.4}.log li time{font-weight:900;color:#1e435e;margin-right:9px}.diagnoses{display:grid;gap:9px}.choice{border:1px solid #d0dce4;border-radius:11px;padding:12px 13px;display:flex;gap:11px;align-items:center;cursor:pointer;background:#fff}.choice:has(input:checked){border-color:#2d688c;background:#ecf4f9}.choice input{accent-color:#24648e}.choice span{font-weight:680}.feedback{margin-top:13px;background:#edf5f9;border:1px solid #cce0eb;border-radius:12px;padding:13px;line-height:1.5;color:#2d5066;font-size:13px}.feedback.error{background:#fff1ee;border-color:#f0cdc5;color:#883c34}.feedback.success{background:#edf8f4;border-color:#b8dfce;color:#17644e}.feedback p{margin:7px 0 0;color:inherit}.feedback ul{margin:8px 0 0;padding-left:18px}.foot{padding:15px 3px;font-size:11px;line-height:1.5;color:#738091}.sideKpi{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#5b7081;margin-bottom:12px}.sideKpi b{color:#19354b}.step{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}.stepnum{border-radius:8px;background:#eaf1f5;color:#31546a;width:29px;height:29px;display:grid;place-items:center;flex-shrink:0;font-weight:900}.step strong{display:block;font-size:13px;margin-bottom:3px}.step p{margin:0;color:#617283;font-size:12px;line-height:1.5}.divider{border:0;border-top:1px solid #e1e8ec;margin:16px 0}.insight{font-size:12px;line-height:1.55;padding:11px 12px;border:1px solid #dbe6eb;border-radius:10px;background:#f6f8fa;color:#577086}.flag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:#93701f;background:#fff4dd;border-radius:999px;padding:7px 9px}.hidden{display:none!important}@media(max-width:1060px){.main{grid-template-columns:1fr}.plant svg{height:310px}.plant{min-height:310px}}@media(max-width:620px){.wrap{padding:10px}.title{align-items:start;flex-direction:column}.masthead{border-radius:12px}.topmeta{display:none}.statusBox{grid-template-columns:repeat(2,minmax(0,1fr))}.bits,.measurement{grid-template-columns:1fr}.plant svg{height:250px}.plant{min-height:250px}.tabview{min-height:0;padding:14px}.cardhead,.pad{padding:13px}.ctrl .btn{flex:1}.title h1{font-size:27px}}
-</style>
+<title>MIKI Industrial Lab · Simulador de diagnóstico v0.3.3</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/plant.css">
+<link rel="stylesheet" href="css/workflow.css">
 </head>
 <body>
 <div class="wrap">
 <header class="masthead">
- <div class="wordmark"><span class="logo">M</span><div><strong>MIKI INDUSTRIAL LAB</strong><small>Aprender haciendo · Prototipo 0.1</small></div></div>
+ <div class="wordmark"><span class="logo">M</span><div><strong>MIKI INDUSTRIAL LAB</strong><small>Aprender haciendo · Versión 0.3.3 · Dos niveles · Carrera y Práctica</small></div></div>
  <div class="topmeta"><span class="chip">MÓDULO 01 · ELECTRICIDAD Y PLC</span><span class="chip">24 V CC · SIMULADO</span></div>
 </header>
-<div class="title"><div><div class="eyebrow">Primer reto interactivo</div><h1>La cinta no arranca</h1><p>Investiga qué impide arrancar el motor. Puedes accionar el mando, consultar el esquema, observar entradas y salidas, y medir tensiones. <b>No hay que escribir respuestas largas.</b></p></div><div class="help">Nivel 01 · 3 causas posibles</div></div>
-<div class="main">
+<nav class="courseNav" aria-label="Niveles disponibles">
+<button type="button" class="levelNav active" data-level="1" aria-current="step"><span class="number">01</span><span>Motor y mando<small>La cinta no arranca</small></span></button>
+<button type="button" class="levelNav" data-level="2"><span class="number">02</span><span>Sensor y señales<small>La cinta no detecta cajas</small></span></button>
+<span id="courseProgress" class="courseProgress">Progreso guardado en este navegador</span>
+<button type="button" class="btn historyOpen" id="archiveOpen">Historial de casos</button>
+</nav>
+<section class="learningMode" aria-label="Seleccionar modalidad de aprendizaje">
+ <div><strong>Tu itinerario formativo</strong><p id="modeExplanation">Modo Carrera: completa dos averías distintas para desbloquear el siguiente nivel.</p></div>
+ <div class="learningModeButtons" role="group" aria-label="Modalidad">
+  <button type="button" id="modeCareer" class="btn primary" aria-pressed="true">Modo Carrera</button>
+  <button type="button" id="modePractice" class="btn" aria-pressed="false">Práctica libre</button>
+ </div>
+</section>
+<div id="levelAccessMessage" class="learningAccess" role="status" aria-live="polite"></div>
+<div class="title"><div><div class="eyebrow" id="stageEyebrow">PRIMER RETO INTERACTIVO</div><h1 id="stageTitle">La cinta no arranca</h1><p id="stageLead">Investiga qué impide arrancar el motor. Puedes accionar el mando, consultar el esquema, observar entradas y salidas, y medir tensiones. <b>No hay que escribir respuestas largas.</b></p></div><div class="help" id="stageHelp">Nivel 01 · 3 causas posibles</div></div>
+<div class="main" id="level1Content">
 <div class="stack">
  <section class="card"><div class="cardhead"><h2>Zona de transporte · CV-01</h2><span id="caseState" class="flag">Avería activa</span></div><div class="pad">
  <div class="plant" role="img" aria-label="Esquema visual de una cinta transportadora didáctica, motor CC, PLC y mando de marcha y paro"><span class="label">PLANTA / ZONA A</span>
@@ -58,40 +73,118 @@
  <div class="insight">Esta aplicación utiliza un modelo eléctrico didáctico, no reproduce un PLC Siemens real. El circuito de paro operativo no equivale a un sistema certificado de parada de emergencia.</div>
 </aside>
 </div>
-<footer class="foot">MIKI Industrial Lab · Prototipo original para formación · Los valores eléctricos son simulados · Versión 0.1 local sin cuentas, servidor ni costes de alojamiento.</footer>
+
+<div class="main hidden" id="level2Content">
+  <div class="stack">
+    <section class="card">
+      <div class="cardhead"><h2>Zona de transporte · CV-01 + B1</h2><span id="sensorCaseState" class="flag">Avería activa</span></div>
+      <div class="pad">
+        <div class="plant" role="img" aria-label="Cinta en marcha y sensor fotoeléctrico PNP de detección de cajas">
+          <span class="label">PLANTA / ZONA A · AMPLIACIÓN</span>
+          <svg viewBox="0 0 720 340" aria-hidden="true">
+            <defs><pattern id="beltpat2" patternUnits="userSpaceOnUse" width="36" height="20"><rect width="36" height="20" fill="#34485f"/><rect x="1" y="1" width="24" height="18" rx="3" fill="#698097" opacity=".5"/></pattern><linearGradient id="cabgrad2"><stop stop-color="#27445d"/><stop offset="1" stop-color="#183047"/></linearGradient></defs>
+            <rect x="39" y="86" width="255" height="191" rx="12" fill="url(#cabgrad2)" stroke="#53718d" stroke-width="2"/>
+            <text x="59" y="112" class="machineTag">CUADRO DE CONTROL</text><text x="59" y="131" class="machineSub">PLC · 24 V CC</text>
+            <rect x="58" y="147" width="218" height="71" rx="6" fill="#0c1827" stroke="#50728d"/>
+            <text x="73" y="167" class="machineSub">CPU EN RUN</text><circle cx="248" cy="162" r="6" fill="#28c49b"/>
+            <g font-family="Arial" font-size="11" text-anchor="middle"><rect x="69" y="182" width="66" height="24" rx="4" fill="#1b4564"/><text x="102" y="198" fill="white">Q0.0</text><rect x="142" y="182" width="66" height="24" rx="4" fill="#1b4564"/><text x="175" y="198" fill="white">I0.2</text></g>
+            <text x="61" y="250" class="machineSub">SENSOR B1 · PNP NO</text>
+            <path d="M294 182H360V190H415" fill="none" stroke="#64a1cc" stroke-width="7" stroke-linecap="round"/>
+            <rect x="397" y="127" width="268" height="144" rx="12" fill="#1d3248" stroke="#55758f" stroke-width="2"/>
+            <rect id="sensorBelt" x="416" y="154" width="225" height="37" rx="17" fill="url(#beltpat2)" stroke="#889cac" stroke-width="2"/>
+            <rect id="sensorCrate" x="465" y="132" width="31" height="31" rx="4" fill="#e5a33d" stroke="#ffcf7e" stroke-width="2"/>
+            <circle cx="437" cy="174" r="13" fill="#17283b" stroke="#8b9aab" stroke-width="5"/><circle cx="624" cy="174" r="13" fill="#17283b" stroke="#8b9aab" stroke-width="5"/>
+            <path d="M547 112V151" stroke="#9fbad0" stroke-width="4"/>
+            <rect x="531" y="107" width="32" height="22" rx="5" fill="#27496a" stroke="#91b3d0" stroke-width="2"/>
+            <circle id="sensorLed" cx="553" cy="118" r="5" fill="#637386"/>
+            <line id="sensorBeam" x1="547" y1="129" x2="547" y2="155" stroke="#64d7fb" stroke-width="3" stroke-dasharray="4 4" opacity=".35"/>
+            <text x="574" y="99" fill="#c6e1ef" font-size="11" font-weight="700">B1 · SENSOR</text>
+            <rect x="473" y="219" width="105" height="34" rx="6" fill="#344b5e" stroke="#7696ab"/>
+            <text x="525" y="240" class="machineTag" text-anchor="middle">M1 · MOTOR</text><circle cx="592" cy="237" r="7" fill="#2bc496"/>
+            <text id="sensorStatusOnPlant" x="532" y="294" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffcd9b" font-weight="bold">NO SE DETECTA LA CAJA</text>
+            <path d="M435 190L429 216M626 190L632 216" stroke="#667a8d" stroke-width="5"/>
+          </svg>
+        </div>
+        <div class="statusBox" aria-live="polite">
+          <div class="statusItem"><small>Motor · M1</small><strong class="good">EN MARCHA</strong></div>
+          <div class="statusItem"><small>Sensor B1 · LED</small><strong id="sensorLedValue" class="bad">APAGADO</strong></div>
+          <div class="statusItem"><small>Entrada PLC · I0.2</small><strong id="sensorInputValue" class="bad">0 · OFF</strong></div>
+          <div class="statusItem"><small>Piezas contadas</small><strong id="sensorCountValue">0</strong></div>
+        </div>
+        <div class="ctrl"><button id="boxPresentBtn" class="btn primary">📦 Colocar caja en el sensor</button><button id="boxRemoveBtn" class="btn">Retirar caja</button><button id="sensorInspectBtn" class="btn">Inspección visual</button></div>
+        <p class="note">La cinta funciona. Para hacer mediciones, puedes mantener una caja detenida frente a B1. El movimiento y las señales son una simulación educativa.</p>
+      </div>
+    </section>
+    <section class="card">
+      <div class="cardhead"><h2>Mesa de diagnóstico · Sensor B1</h2><span class="muted">Mide y contrasta las señales</span></div>
+      <div class="tabs" role="tablist" aria-label="Herramientas de diagnóstico del sensor">
+        <button class="active" data-sensor-tab="sensorScheme" role="tab" aria-selected="true">Esquema</button>
+        <button data-sensor-tab="sensorPlc" role="tab" aria-selected="false">PLC online</button>
+        <button data-sensor-tab="sensorMeter" role="tab" aria-selected="false">Multímetro</button>
+        <button data-sensor-tab="sensorHistory" role="tab" aria-selected="false">Registro</button>
+        <button data-sensor-tab="sensorDiagnose" role="tab" aria-selected="false">Diagnóstico</button>
+      </div>
+      <div class="tabview active" id="sensorScheme" role="tabpanel">
+        <h3>Alimentación y señal de B1</h3>
+        <p>Sensor fotoeléctrico PNP, normalmente abierto (NO), alimentado a 24 V CC. Solo entrega una señal positiva cuando detecta una caja y el sensor está operativo.</p>
+        <div class="schematic">
+          <div class="schematicRow"><h4>Alimentación del sensor</h4><div class="chain"><span class="node">+24 V</span><span class="arrow">→</span><span class="node">F3</span><span class="arrow">→</span><span class="node">B1 · marrón</span></div><div class="note">El hilo azul de B1 va a 0 V. El fusible F3 protege esta rama didáctica.</div></div>
+          <div class="schematicRow"><h4>Señal de detección (PNP NO)</h4><div class="chain"><span class="node">B1 · negro</span><span class="arrow">→</span><span class="node">Cable W1</span><span class="arrow">→</span><span class="node">PLC · I0.2</span></div><div class="note">Con caja detectada, se esperan aproximadamente +24 V en la salida negra y en la entrada I0.2; sin caja, 0 V en este modelo.</div></div>
+          <div class="schematicRow"><h4>La salida de mando del motor</h4><div class="chain"><span class="node">PLC Q0.0</span><span class="arrow">→</span><span class="node">K1</span><span class="arrow">→</span><span class="node">M1</span></div><div class="note">El motor funciona y el fallo no está en la maniobra de marcha. El problema está en la detección.</div></div>
+        </div>
+      </div>
+      <div class="tabview" id="sensorPlc" role="tabpanel"><h3>PLC · Monitor online</h3><p>Consulta el estado de la entrada I0.2 mientras colocas y retiras la caja. Distingue la salida física del sensor de la señal que recibe el PLC.</p>
+        <div class="bits"><div class="bit"><small>Q0.0 · Motor en marcha</small><strong class="on">1</strong></div><div class="bit"><small>I0.2 · Sensor B1</small><strong id="sensorPlcBit">0</strong></div><div class="bit"><small>M0.1 · Caja detectada</small><strong id="sensorMemoryBit">0</strong></div><div class="bit"><small>Contador de cajas</small><strong id="sensorPlcCount">0</strong></div></div>
+        <div class="insight" style="margin-top:14px">Que el LED de B1 se ilumine no implica necesariamente que la señal llegue hasta I0.2. Comprueba ambas partes del circuito.</div>
+      </div>
+      <div class="tabview" id="sensorMeter" role="tabpanel"><h3>Multímetro virtual</h3><p>Selecciona un punto de prueba. Punta negra a 0 V y punta roja al punto indicado. Las lecturas cambian al situar la caja delante de B1.</p>
+        <div class="measurement"><div><label for="sensorPoint"><b>Selecciona el punto positivo (+)</b></label>
+          <select id="sensorPoint"><option value="source">Fuente +24 V</option><option value="fuseIn">Entrada de F3</option><option value="fuseOut">Salida de F3</option><option value="brown">Hilo marrón del sensor B1</option><option value="black">Salida negra de B1 (PNP)</option><option value="terminal">Borne PLC I0.2 (tras cable W1)</option></select>
+          <div style="margin-top:12px"><button class="btn primary" id="sensorMeasureBtn">Medir tensión</button></div><p class="note">Valores ideales y simulados en V CC. No realizar mediciones reales sobre equipos energizados sin formación y procedimientos adecuados.</p>
+        </div><div class="meter" aria-live="polite"><div><div class="read" id="sensorReading">— V</div><small>V CC · REFERENCIA 0 V</small></div></div></div>
+        <div class="insight" id="sensorMeasureExplain" style="margin-top:14px">Con caja delante del sensor, sigue la tensión desde F3 hasta la entrada del PLC.</div>
+      </div>
+      <div class="tabview" id="sensorHistory" role="tabpanel"><h3>Registro de comprobaciones</h3><p>Quedan registradas las acciones realizadas durante este caso, sin escribir respuestas largas.</p><ol class="log" id="sensorLog"></ol></div>
+      <div class="tabview" id="sensorDiagnose" role="tabpanel"><h3>¿Por qué no detecta cajas?</h3><p>Selecciona la causa más consistente con lo que has observado. Puedes comprobar todas las medidas antes de decidir.</p>
+        <div class="diagnoses"><label class="choice"><input type="radio" name="sensorCause" value="power"><span>F3 abierto: el sensor no recibe alimentación</span></label><label class="choice"><input type="radio" name="sensorCause" value="align"><span>B1 desalineado: no detecta el objeto</span></label><label class="choice"><input type="radio" name="sensorCause" value="wire"><span>Cable W1 abierto entre la salida del sensor y I0.2</span></label></div>
+        <div class="ctrl"><button class="btn primary" id="sensorAnswerBtn">Comprobar diagnóstico</button></div><div id="sensorFeedback" aria-live="polite"></div>
+        <div id="sensorRepairActions" class="hidden"><div class="ctrl"><button class="btn alt" id="sensorRepairBtn">Aplicar reparación simulada</button></div></div>
+      </div>
+    </section>
+  </div>
+  <aside class="stack">
+    <section class="card"><div class="cardhead"><h2>Parte de incidencia</h2><span class="flag">NIVEL 02</span></div><div class="pad"><div class="callout"><b>El operario informa:</b><br>«La cinta transportadora se mueve, pero las cajas pasan y el contador permanece a cero».</div>
+    <div class="sideKpi" style="margin-top:16px"><span>Instalación</span><b>Cinta CV-01 + sensor B1</b></div><div class="sideKpi"><span>Sensor</span><b>Fotoeléctrico PNP · NO</b></div><div class="sideKpi"><span>Alimentación</span><b>24 V CC</b></div><div class="sideKpi"><span>Objetivo</span><b>Localizar fallo de detección</b></div><hr class="divider"/>
+    <div class="step"><span class="stepnum">1</span><div><strong>Reproduce el fallo</strong><p>Coloca una caja delante de B1 y observa el LED y la entrada I0.2.</p></div></div>
+    <div class="step"><span class="stepnum">2</span><div><strong>Investiga</strong><p>Compara la alimentación, la salida del sensor y la señal que llega al PLC.</p></div></div>
+    <div class="step"><span class="stepnum">3</span><div><strong>Repara y verifica</strong><p>Elige la causa, aplica la reparación y vuelve a hacer pasar una caja.</p></div></div>
+    </div></section>
+    <section class="card"><div class="cardhead"><h2>Tu progreso en el nivel 2</h2><span class="muted" id="sensorProgressTag">En investigación</span></div><div class="pad">
+    <div class="sideKpi"><span>Comprobaciones distintas</span><b id="sensorChecks">0</b></div><div class="sideKpi"><span>Diagnósticos incorrectos</span><b id="sensorMistakes">0</b></div><div class="sideKpi"><span>Resultado</span><b id="sensorResult">Pendiente</b></div>
+    <div class="ctrl"><button class="btn" id="sensorResetBtn">Reiniciar este caso</button><button class="btn alt" id="sensorNextBtn">Otra avería del sensor</button></div>
+    <p class="note">Tres causas diferentes provocan un mismo síntoma. El nivel se considera superado al reparar y comprobar una detección correcta.</p>
+    </div></section><div class="insight">Simulación didáctica de baja tensión. El contador es un modelo sencillo por flanco de detección: registra una nueva caja cuando I0.2 pasa de 0 a 1.</div>
+  </aside>
 </div>
-<script>
-(()=>{
-'use strict';
-const $=id=>document.getElementById(id);
-const CASES=['stop','fuse','coil'];
-const faultDetails={
-stop:{name:'Contacto S0 abierto',explanation:'Con el paro sin pulsar, I0.0 debería estar a 1. La salida de S0 mide 0 V, por lo que el PLC no permite mantener la orden de marcha. La causa de este caso es el contacto NC defectuoso.',evidence:'24 V antes de S0, 0 V después de S0; I0.0 = 0; Q0.0 = 0.',repair:'Sustituir el pulsador S0 defectuoso tras aislar la alimentación y comprobar el circuito.'},
-fuse:{name:'Fusible F2 abierto',explanation:'La lógica PLC es correcta y K1 cierra, pero la alimentación de potencia no llega al motor. En el modelo hay 24 V antes de F2 y 0 V después.',evidence:'I0.0 = 1; Q0.0 = 1; F2 entrada = 24 V y salida = 0 V.',repair:'Desenergizar, investigar por qué abrió F2 y sustituirlo por una protección adecuada antes de realizar pruebas.'},
-coil:{name:'Bobina K1 interrumpida',explanation:'El PLC genera Q0.0 = 1 y el fusible F2 está correcto. La tensión llega a la bobina, pero el relé no se excita y su contacto de potencia permanece abierto.',evidence:'Q0.0 = 1; F2 salida = 24 V; contacto K1 salida = 0 V.',repair:'Desenergizar y verificar la bobina; sustituir K1 defectuoso y comprobar el funcionamiento.'}
-};
-let fault='stop', repaired=false, requested=false, stopHeld=false, startPulse=false, attempts=0, checks=new Set(), events=[], done=false, adjudicated=false, caseNumber=1, moving=0;
-function sendLog(message){const t=new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit',second:'2-digit'});events.unshift({t,message});events=events.slice(0,35);renderLog()}
-function renderLog(){const node=$('history');node.innerHTML='';for(const e of events){const li=document.createElement('li');const time=document.createElement('time');time.textContent=e.t;li.append(time,document.createTextNode(e.message));node.appendChild(li)} }
-function check(id,msg){if(!checks.has(id)){checks.add(id)}sendLog(msg);$('checks').textContent=checks.size}
-function model(){const stopOk=!stopHeld&&(repaired||fault!=='stop');if(!stopOk)requested=false;const plcQ=stopOk&&requested;const coilEnergized=plcQ&&(repaired||fault!=='coil');const fuseOk=repaired||fault!=='fuse';const motor=coilEnergized&&fuseOk;return {stopOk,plcQ,coilEnergized,fuseOk,motor}}
-function update(){const m=model();const bit=(el,val)=>{const e=$(el);e.textContent=val?'1':'0';e.className=val?'on':'off'};bit('bStop',m.stopOk);bit('bStart',startPulse);bit('bLatched',requested);bit('bQ',m.plcQ);$('mainStop').textContent=m.stopOk?'1 · OK':'0 · ABIERTO';$('mainStop').className=m.stopOk?'good':'bad';$('mainQ').textContent=m.plcQ?'1 · ON':'0 · OFF';$('mainQ').className=m.plcQ?'good':'bad';$('mainMotor').textContent=m.motor?'EN MARCHA':'PARADO';$('mainMotor').className=m.motor?'good':'bad';$('machineStatus').textContent=m.motor?'MOTOR EN MARCHA':'MOTOR PARADO';$('machineStatus').setAttribute('fill',m.motor?'#8cf0bf':'#ffcd9b');$('motorLed').setAttribute('fill',m.motor?'#2bc496':'#b34f44');if(m.motor&&!moving){moving=setInterval(()=>{let x=parseFloat($('movingCrate').getAttribute('x'));$('movingCrate').setAttribute('x',String(x>590?435:x+3))},55)}if(!m.motor&&moving){clearInterval(moving);moving=0}if(repaired&&m.motor&&!done){done=true;$('result').textContent='Verificado';$('progressTag').textContent='Caso resuelto';$('caseState').textContent='Instalación operativa';$('caseState').style.background='#e2f4eb';$('caseState').style.color='#166444';sendLog('Verificación superada: tras reparar y dar Marcha, M1 funciona.');const f=$('feedback');f.className='feedback success';f.innerHTML='<b>✓ Avería resuelta y funcionamiento comprobado.</b><p>Has validado la reparación observando el arranque real simulado del motor.</p>';$('repairActions').classList.add('hidden');} }
-function measureValue(point){const m=model();const map={supply:24,s0in:24,s0out:m.stopOk?24:0,q:m.plcQ?24:0,f2in:24,f2out:m.fuseOk?24:0,k1out:m.coilEnergized&&m.fuseOk?24:0,motor:m.motor?24:0};return map[point]}
-const names={supply:'Alimentación +24 V',s0in:'Entrada S0',s0out:'Salida S0 / I0.0',q:'Salida Q0.0 / K1',f2in:'Entrada F2',f2out:'Salida F2',k1out:'Salida contacto K1',motor:'Borne + de M1'};
-const explanations={supply:'La fuente de 24 V está operativa.',s0in:'El pulsador de paro recibe la alimentación de mando.',s0out:'Después de S0, con el paro sin pulsar, se esperan 24 V.',q:'Esta salida representa la orden eléctrica del PLC hacia K1.',f2in:'El fusible recibe 24 V desde la fuente.',f2out:'Si F2 está correcto, a su salida se esperan 24 V.',k1out:'El contacto NO de K1 solo entrega alimentación cuando la bobina se excita y el fusible está cerrado.',motor:'El borne positivo de M1 solo tiene 24 V si están completos el mando y la potencia.'};
-function initCase(type,number){fault=type;caseNumber=number;repaired=false;requested=false;stopHeld=false;startPulse=false;attempts=0;checks=new Set();events=[];done=false;adjudicated=false;$('reading').textContent='— V';$('measureExplain').textContent='Elige un punto y pulsa Medir tensión.';$('feedback').className='';$('feedback').innerHTML='';$('repairActions').classList.add('hidden');$('repairBtn').disabled=false;$('repairBtn').textContent='Aplicar reparación simulada';$('mistakes').textContent='0';$('checks').textContent='0';$('result').textContent='Pendiente';$('progressTag').textContent='En investigación';$('caseState').textContent='Avería activa';$('caseState').removeAttribute('style');document.querySelectorAll('input[name="cause"]').forEach(x=>x.checked=false);sendLog('Avería del motor preparada. El operario informa de que la cinta no arranca.');update();}
-$('startBtn').onclick=()=>{startPulse=true;const allowed=model().stopOk;if(allowed)requested=true;check('start','Pulsador Marcha accionado. '+(allowed?'El PLC acepta la orden.':'El PLC no acepta la orden: paro no conforme.'));update();setTimeout(()=>{startPulse=false;update()},700)};
-$('stopBtn').onclick=()=>{stopHeld=true;requested=false;check('stop','Pulsador Paro accionado: se abre el circuito de mando y cae la orden.');update();setTimeout(()=>{stopHeld=false;update()},700)};
-$('inspectBtn').onclick=()=>{check('inspect','Inspección visual: la cinta no presenta bloqueo mecánico evidente; no se observan cables sueltos a simple vista.');openTab('log')};
-function openTab(name){document.querySelectorAll('[data-tab]').forEach(b=>{const on=b.dataset.tab===name;b.classList.toggle('active',on);b.setAttribute('aria-selected',on?'true':'false')});document.querySelectorAll('.tabview').forEach(v=>v.classList.toggle('active',v.id===name));if(name==='plc')check('plc','Consultado monitor PLC: I0.0='+Number(model().stopOk)+', Q0.0='+Number(model().plcQ)+'.')}
-document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>openTab(b.dataset.tab));
-$('measureBtn').onclick=()=>{const point=$('point').value;const v=measureValue(point);$('reading').textContent=v.toFixed(1)+' V';$('measureExplain').textContent=explanations[point];check('meter:'+point,`Multímetro: ${names[point]} = ${v.toFixed(1)} V respecto a 0 V.`)};
-$('answerBtn').onclick=()=>{const sel=document.querySelector('input[name="cause"]:checked');const feedback=$('feedback');if(!sel){feedback.className='feedback error';feedback.textContent='Selecciona una causa para comprobar tu diagnóstico.';return}if(repaired){feedback.className='feedback success';feedback.textContent='Ya has aplicado la reparación. Comprueba el arranque con Marcha.';return}if(sel.value!==fault){attempts++;$('mistakes').textContent=attempts;feedback.className='feedback error';feedback.innerHTML='<b>Esta hipótesis no encaja con el caso.</b><p>Comprueba las señales de mando y después sigue el camino de la tensión por el circuito de potencia. Puedes volver a intentarlo.</p>';sendLog('Hipótesis '+sel.value+' descartada por las evidencias del caso.');return}adjudicated=true;const f=faultDetails[fault];feedback.className='feedback success';const evidenceCount=checks.size;feedback.innerHTML='<b>✓ Diagnóstico correcto: '+f.name+'</b><p>'+f.explanation+'</p><p><strong>Comprobación clave:</strong> '+f.evidence+'</p><p><strong>Intervención simulada:</strong> '+f.repair+'</p>'+(evidenceCount<2?'<p><strong>Para aprender mejor:</strong> lo has acertado con pocas comprobaciones. La próxima vez intenta medir antes de decidir.</p>':'');$('repairActions').classList.remove('hidden');sendLog('Causa de la avería identificada correctamente: '+f.name+'.')};
-$('repairBtn').onclick=()=>{if(!adjudicated)return;repaired=true;requested=false;$('repairBtn').disabled=true;$('repairBtn').textContent='Reparación aplicada';sendLog('Reparación simulada aplicada. Falta verificar el arranque.');const f=$('feedback');const p=document.createElement('p');p.innerHTML='<strong>Ahora:</strong> vuelve a Planta y pulsa Marcha para verificar que M1 funciona.';f.appendChild(p);update();window.scrollTo({top:0,behavior:'smooth'})};
-$('resetBtn').onclick=()=>initCase(fault,caseNumber);
-$('newBtn').onclick=()=>{const next=CASES[(CASES.indexOf(fault)+1)%CASES.length];initCase(next,caseNumber+1);openTab('scheme')};
-initCase('stop',1);
-})();
-</script>
+<dialog id="caseArchive" class="archiveDialog" aria-labelledby="archiveTitle"><div class="archiveTop"><h2 id="archiveTitle">Historial de intervenciones</h2><button id="archiveClose" type="button" class="btn">Cerrar</button></div><p class="muted">Los casos resueltos y sus comprobaciones se guardan en este navegador.</p><div id="archiveList" class="archiveList"></div></dialog>
+<footer class="foot">MIKI Industrial Lab · Versión 0.3.3 · Progreso local, sin cuentas ni servidor. Simulación didáctica: no es formación certificada ni autoriza intervenciones eléctricas reales. El paro operativo PLC no es una parada de emergencia certificada.</footer>
+</div>
+
+
+<script src="js/storage.js"></script>
+<script src="levels/level-01.js"></script>
+<script src="levels/level-02.js"></script>
+<script src="js/intervention.js"></script>
+<script src="js/simulation.js"></script>
+<script src="js/measurements.js"></script>
+<script src="js/progression.js"></script>
+<script src="js/learning.js"></script>
+<script src="js/schematics.js"></script>
+<script src="js/plant.js"></script>
+<script src="js/workflow.js"></script>
+<script src="js/completion.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
+

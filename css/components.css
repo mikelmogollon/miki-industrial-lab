@@ -1,0 +1,177 @@
+/* v0.3 preserves the v0.2 palette and plant. */
+.circuit .hitArea{fill:transparent;stroke:none;pointer-events:all}
+.measurementSafety{padding:12px;background:#fff7e9;border:1px solid #edd4a9;border-radius:10px;margin-bottom:14px;font-size:14px}
+.measurementSafety p{margin:8px 0}
+.measurementSafety .safePoint{width:100%;text-align:left;margin:4px 0;min-height:44px;font-size:14px}
+.operatingState{padding:10px 12px;border-left:3px solid #3a6e9a;background:#edf3f6;font-size:14px}
+.benchTools select{padding:8px;border-radius:8px;max-width:95px}
+.benchTools{flex-wrap:wrap}
+.redLabel{color:#a93232}
+#careerControls{display:flex;gap:8px;flex-wrap:wrap}
+#resultDialog p{font-size:15px;line-height:1.5}
+#resultDialog .btn{margin:8px 8px 0 0}
+#storage03:empty{display:none}
+.safePanel strong{font-size:15px}
+.safePanel .btn{min-height:44px}
+.circuit [role=button]{cursor:pointer}
+.circuit .red text{fill:#a93232;font-weight:700}
+.circuit .black text{font-weight:700}
+.career .storageNotice{width:100%;margin:0}
+button,select{touch-action:manipulation}
+.archiveDialog{max-height:88vh}
+.tabview p{overflow-wrap:anywhere}
+
+.bench>*{min-width:0}
+
+.caseGuide{padding:16px 18px;background:#f3f7f9;border-bottom:1px solid #dce2e6;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.caseGuide strong{color:#203c56}
+.caseGuide p{font-size:14px;color:#627183;line-height:1.5;margin:6px 0 0;max-width:540px}
+.caseGuide .ctrl{margin:0;flex-shrink:0}
+.tabs [role=tab]{min-height:44px}
+@media(max-width:700px){.caseGuide{display:block;padding:14px}
+.caseGuide .ctrl{margin-top:12px}
+}
+
+.expanded .plant{min-height:0!important;overflow:auto}
+.expanded .plant svg{min-width:1000px;height:auto!important}
+.plantHint{display:none}
+.expanded .plantHint{display:block;font-size:14px;color:#627183}
+
+body{font-size:16px}
+.muted,.note,.insight,.step p,.sideKpi,.log li,.tabs button,.choice,.help{font-size:14px}
+.wordmark small,.courseProgress{font-size:14px}
+.main{grid-template-columns:minmax(0,1fr) 310px}
+.main>.stack{min-width:0}
+.bench{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px;padding:16px;align-items:start}
+.bench .tabview{display:block;padding:0;min-height:0}
+.bench .measurement{display:flex;flex-direction:column-reverse}
+.bench .meter{width:100%}
+.bench .insight{margin-top:12px}
+.bench select{margin:6px 0 12px;font-size:14px}
+.bench p{font-size:14px}
+.bench h3{font-size:16px}
+.circuit-scroll{overflow:auto;border:1px solid #cfdae2;border-radius:12px;background:#f8fafb}
+.circuit{display:block;width:100%;min-width:510px;height:auto;color:#203c56}
+.circuit text{font:14px 'Segoe UI',sans-serif;fill:#203c56}
+.circuit .wire{fill:none;stroke:#536e83;stroke-width:2}
+.circuit .symbol{fill:#fff;stroke:#203c56;stroke-width:2}
+.circuit .terminal{fill:#ecab41;stroke:#6d4b10;stroke-width:2;cursor:pointer}
+.circuit [role=button]:focus{outline:none}
+.circuit [role=button]:focus .terminal{stroke:#087457;stroke-width:5}
+.circuit .red .terminal{fill:#cb4e4e}
+.circuit .black .terminal{fill:#273642;stroke:#ecab41;stroke-width:3}
+.probeToggle{display:flex;gap:8px;margin:12px 0}
+.probeToggle button{flex:1}
+.probeToggle [aria-pressed=true]{box-shadow:inset 0 0 0 2px #203c56;background:#fff3dd}
+.benchTools{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}
+.benchTools h3{margin:0}
+.expanded{position:fixed!important;inset:14px;z-index:1000;background:#fff;padding:20px;overflow:auto;border:2px solid #203c56;box-shadow:0 0 0 30px #121e31aa;border-radius:16px}
+.expanded .circuit{max-width:1300px;margin:auto}
+.expanded .plant{min-height:65vh}
+.expanded .plant svg{height:65vh}
+.plantZoom{display:block;margin:0 0 12px auto}
+.career{margin:16px 0;background:#fff;border:1px solid #d6dfe5;border-radius:12px;padding:16px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.career p{margin:6px 0;color:#627183;font-size:14px}
+.career progress{accent-color:#168568;width:220px;max-width:100%}
+.safePanel{border:1px solid #d8e3e9;border-radius:10px;background:#f3f7f9;padding:12px;margin:12px 0}
+.safePanel p{font-size:14px;margin:8px 0}
+.safePanel button{margin:4px 5px 4px 0}
+.closure{margin:14px 0;border:1px solid #b8dfce;background:#edf8f4;border-radius:12px;padding:16px;line-height:1.5}
+.closure h3{margin:0 0 8px}
+.closure p{margin:8px 0}
+.badge{display:inline-block;padding:5px 9px;border-radius:8px;background:#fff2d6;color:#6d4b10;margin:3px;font-size:14px}
+.storageNotice{color:#903834;font-size:14px}
+.liveMeasure{font-size:14px;padding-top:8px}
+.cardhead{flex-wrap:wrap}
+
+@media(max-width:1250px){.main{grid-template-columns:1fr}
+.bench{grid-template-columns:minmax(0,1fr) 290px}
+}
+@media(max-width:700px){.bench{grid-template-columns:1fr;padding:12px}
+.bench .measurement{display:grid;grid-template-columns:1fr 1fr}
+.bench .meter .read{font-size:28px}
+.bench .measurement>div{min-width:0}
+.benchTools{align-items:start;flex-wrap:wrap}
+.expanded{inset:5px;padding:10px}
+.career{align-items:start}
+.career progress{width:160px}
+.tabs button{min-height:44px}
+.statusItem small{font-size:11px}
+.statusItem strong{font-size:15px}
+}
+@media(max-width:420px){.bench .measurement{grid-template-columns:1fr}
+.wordmark strong{font-size:14px}
+.masthead{padding:12px}
+}
+
+
+.btn{min-height:44px}.foot{font-size:14px;line-height:1.6}
+/* v0.3.2 · Carrera guiada y práctica libre. Misma identidad visual. */
+.learningMode{margin:12px 0 0;padding:13px 17px;border:1px solid #d5e0e6;border-radius:13px;background:#fff;display:flex;gap:16px;align-items:center;justify-content:space-between}
+.learningMode strong{font-size:14px;color:#203c56}.learningMode p{font-size:13px;color:#627183;margin:4px 0 0;line-height:1.4}.learningModeButtons{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.learningModeButtons .btn[aria-pressed="true"]{background:#203c56;color:#fff;border-color:#203c56}.learningModeButtons .btn[aria-pressed="false"]{background:#fff;color:#23364b;border-color:#cbd8e0}
+.learningAccess{min-height:0;margin-top:6px;color:#566a7e;font-size:13px}.learningAccess:not(:empty){padding:9px 13px;background:#fff6e5;border:1px solid #ead4a9;border-radius:9px}
+.levelNav{transition:border-color .15s,background-color .15s}.levelNav.locked{background:#f5f6f7;color:#7b8894;border-style:dashed}.levelNav.locked .number{background:#e2e7ea;color:#6b7888}
+.levelNav small{line-height:1.35}.levelNav.active .levelProgressText{color:#d5e9f5}.levelProgressText{display:block;font-size:11px;font-weight:600;color:#546e83;margin-top:4px}
+.learningNext{padding:10px 13px;border:1px dashed #b8c6d0;border-radius:11px;background:#f3f6f8;color:#728090;font-size:12px;min-width:185px}
+.learningNext strong{display:block;color:#405870;font-size:12px;margin-bottom:4px}.caseGuide .learningCaseProgress{color:#34647e;font-size:13px;font-weight:750;margin-top:5px}
+.practiceBanner{background:#edf5fa;border:1px solid #c9dce8;color:#315c79;padding:9px 13px;border-radius:10px;font-size:13px;margin-bottom:11px}
+@media(max-width:720px){.learningMode{flex-direction:column;align-items:stretch}.learningModeButtons{width:100%}.learningModeButtons .btn{flex:1}.learningNext{width:100%}}
+
+
+/* v0.3.2 · Vista ancha (revisión visual opcional).
+   Solo presentación: conserva las seis averías, Carrera y Práctica. */
+@media (min-width: 1260px) {
+  .wrap {max-width: 1880px; width: 100%; padding: 16px clamp(18px, 1.5vw, 28px) 24px;}
+  .main {grid-template-columns: minmax(0, 1fr) clamp(285px, 21vw, 330px); gap: 14px;}
+  .main > .stack {min-width: 0; gap: 13px;}
+  .main > aside.stack {gap: 13px;}
+  .bench {grid-template-columns: minmax(0, 1fr) clamp(290px, 23%, 355px); gap: 16px;}
+  .plant {min-height: 290px;}
+  .plant svg {height: 290px;}
+  .title {margin: 16px 2px 13px;}
+  .title h1 {margin: 5px 0;}
+  .masthead {padding: 12px 18px;}
+  .learningMode {padding: 10px 15px;}
+  .career {margin: 11px 0; padding: 12px 16px;}
+  .cardhead {padding: 12px 17px;}
+  .pad {padding: 14px 16px;}
+  .caseGuide {padding: 12px 15px;}
+  .tabs {padding: 9px 11px;}
+  .statusItem {padding: 10px 11px;}
+  .courseNav {margin-top: 10px;}
+  .circuit {max-width: 710px; margin-inline: auto;}
+  .expanded .circuit {max-width: 1300px;}
+  .title p {max-width: 1020px;}
+  .main > aside .step {margin-bottom: 12px;}
+}
+@media (min-width: 1260px) and (max-width: 1440px) {
+  .bench {grid-template-columns: minmax(0, 1fr) 280px; gap: 12px;}
+  .main {grid-template-columns: minmax(0, 1fr) 290px;}
+}
+@media (min-width: 1700px) {
+  .wrap {max-width: 1920px;}
+  .main {grid-template-columns: minmax(0, 1fr) 335px;}
+  .bench {grid-template-columns: minmax(0, 1fr) 335px;}
+  .plant svg {height: 320px;}
+  .plant {min-height: 320px;}
+}
+
+
+/* Vista fija y compacta de la planta, exclusivamente para pantallas con
+   columna lateral. Replica el SVG en vivo sin bloquear el diagnóstico. */
+.mini-plant-dock{
+  position:sticky;top:12px;align-self:start;z-index:8;
+  background:#fff;border:1px solid #c9d7df;border-radius:13px;
+  padding:10px;box-shadow:0 10px 26px #132a3a16;
+}
+.mini-plant-header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.mini-plant-header strong{font-size:13px;color:#203c56}
+.mini-plant-jump{font-size:12px;padding:6px 9px;min-height:34px!important}
+.mini-plant-viewport{overflow:hidden;background:#131f30;border-radius:9px;border:1px solid #253d5b}
+.mini-plant-svg{display:block;width:100%;height:auto;max-height:145px}
+.mini-plant-states{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.mini-plant-state{display:inline-block;padding:4px 8px;border-radius:7px;border:1px solid #dbe3e8;background:#f4f7f8;font-size:11px;font-weight:650;color:#52687b}
+.mini-plant-state[data-state="ok"]{background:#e5f6ef;color:#11684c;border-color:#bde2d2}
+@media(max-width:1250px){.mini-plant-dock{display:none}}
+@media(prefers-reduced-motion:reduce){.mini-plant-dock *{animation:none!important}}

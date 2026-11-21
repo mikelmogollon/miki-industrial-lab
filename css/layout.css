@@ -1,0 +1,30 @@
+/* v0.2: same visual system, coherent navigation and extended interactive plant */
+.courseNav{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:15px}
+.levelNav{display:flex;align-items:center;gap:10px;text-align:left;background:#fff;border:1px solid #d6dfe5;padding:9px 14px;border-radius:12px;color:#24374a;min-width:194px;font-weight:800;box-shadow:0 2px 6px #182b3a06}
+.levelNav:hover{border-color:#90aebe}
+.levelNav.active{background:#203c56;border-color:#203c56;color:#fff}
+.levelNav .number{border-radius:7px;background:#eaf1f5;padding:8px;color:#335a75;font-weight:900}
+.levelNav.active .number{background:#f4ae42;color:#172232}
+.levelNav small{display:block;font-size:11px;font-weight:500;margin-top:2px;color:#708497}
+.levelNav.active small{color:#c0d7e7}
+.courseProgress{font-size:12px;color:#617183;margin-left:auto}
+.historyOpen{padding:9px 12px}
+.archiveDialog{width:min(760px,94vw);max-height:82vh;border:1px solid #bcd0d9;border-radius:17px;padding:22px;background:white;color:#19273a;box-shadow:0 20px 60px #0003}
+.archiveDialog::backdrop{background:#0b192abf}
+.archiveTop{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.archiveTop h2{margin:0;font-size:21px}
+.archiveList{display:grid;gap:10px;margin-top:17px}
+.archiveItem{border:1px solid #dce5e9;background:#f7f9fa;border-radius:10px;padding:13px}
+.archiveItem summary{cursor:pointer;font-weight:750;font-size:13px}
+.archiveItem .log{max-height:250px;margin-top:9px}
+.archiveItem p{margin:10px 0}
+.plant svg{overflow:visible}
+@media(max-width:620px){.courseNav{display:grid;grid-template-columns:1fr 1fr}
+.levelNav{min-width:0;padding:9px}
+.levelNav .number{padding:6px}
+.courseProgress{grid-column:1/-1;margin:0}
+.historyOpen{grid-column:1/-1}
+.archiveDialog{padding:14px}
+}
+
+
