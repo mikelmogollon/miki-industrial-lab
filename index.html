@@ -4,18 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#121e31">
-<title>MIKI Industrial Lab · Simulador de diagnóstico v0.3.4</title>
+<title>MIKI Industrial Lab · Simulador de diagnóstico v0.6.0</title>
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/plant.css">
 <link rel="stylesheet" href="css/workflow.css">
 <link rel="stylesheet" href="css/schematics.css">
+<link rel="stylesheet" href="css/transfer.css">
+<link rel="stylesheet" href="css/diagnostic-desk.css">
+<link rel="stylesheet" href="css/grafcet.css">
+<link rel="stylesheet" href="css/sequence-level.css">
+<link rel="stylesheet" href="css/sorting.css">
 </head>
 <body>
 <div class="wrap">
 <header class="masthead">
- <div class="wordmark"><span class="logo">M</span><div><strong>MIKI INDUSTRIAL LAB</strong><small>Aprender haciendo · Versión 0.3.4 · Dos niveles · Carrera y Práctica</small></div></div>
+ <div class="wordmark"><span class="logo">M</span><div><strong>MIKI INDUSTRIAL LAB</strong><small>Aprender haciendo · Versión 0.6.0 · Cinco niveles · Carrera y Práctica</small></div></div>
  <div class="topmeta"><span class="chip">MÓDULO 01 · ELECTRICIDAD Y PLC</span><span class="chip">24 V CC · SIMULADO</span></div>
 </header>
 <nav class="courseNav" aria-label="Niveles disponibles">
@@ -168,22 +173,42 @@
   </aside>
 </div>
 <dialog id="caseArchive" class="archiveDialog" aria-labelledby="archiveTitle"><div class="archiveTop"><h2 id="archiveTitle">Historial de intervenciones</h2><button id="archiveClose" type="button" class="btn">Cerrar</button></div><p class="muted">Los casos resueltos y sus comprobaciones se guardan en este navegador.</p><div id="archiveList" class="archiveList"></div></dialog>
-<footer class="foot">MIKI Industrial Lab · Versión 0.3.4 · Progreso local, sin cuentas ni servidor. Simulación didáctica: no es formación certificada ni autoriza intervenciones eléctricas reales. El paro operativo PLC no es una parada de emergencia certificada.</footer>
+<footer class="foot">MIKI Industrial Lab · Versión 0.6.0 · Progreso local, sin cuentas ni servidor. Simulación didáctica: no es formación certificada ni autoriza intervenciones eléctricas o neumáticas reales. El paro operativo PLC no es una parada de emergencia certificada.</footer>
 </div>
 
 
 <script src="js/storage.js"></script>
 <script src="levels/level-01.js"></script>
 <script src="levels/level-02.js"></script>
+<script src="levels/level-03.js"></script>
+<script src="levels/level-04.js"></script>
+<script src="levels/level-05.js"></script>
 <script src="js/intervention.js"></script>
 <script src="js/simulation.js"></script>
+<script src="js/transfer-simulation.js"></script>
+<script src="js/sequence-runtime.js"></script>
+<script src="js/sequence-engine.js"></script>
+<script src="js/sequence-simulation.js"></script>
+<script src="js/sequence-intervention.js"></script>
+<script src="js/pneumatic-model.js"></script>
+<script src="js/sorting-sequence.js"></script>
+<script src="js/sorting-intervention.js"></script>
+<script src="js/sorting-simulation.js"></script>
 <script src="js/measurements.js"></script>
 <script src="js/progression.js"></script>
+<script src="js/curriculum.js"></script>
 <script src="js/learning.js"></script>
 <script src="js/schematics.js"></script>
 <script src="js/plant.js"></script>
+<script src="js/transfer-plant.js"></script>
+<script src="js/transfer-ui.js"></script>
+<script src="js/sequence-ui.js"></script>
+<script src="js/sorting-views.js"></script>
+<script src="js/sorting-ui.js"></script>
+<script src="js/grafcet-ui.js"></script>
 <script src="js/workflow.js"></script>
 <script src="js/completion.js"></script>
+<script src="js/diagnostic-desk.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/app.js"></script>
 </body>

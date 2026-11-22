@@ -1,0 +1,7 @@
+/* Ajustes acotados al nuevo ejercicio; la mesa existente no cambia. */
+#level4Content .transfer-sequence>p:not(:empty){padding:9px 11px;border:1px solid #e2ba79;border-radius:7px;background:#fff5e5;color:#805819}
+#level4Content .workflow-parameter{display:flex;gap:8px;align-items:end;flex-wrap:wrap;margin:8px 0;font-size:13px}
+#level4Content .workflow-parameter label{display:flex;flex-direction:column;gap:4px}
+#level4Content .workflow-parameter select{min-height:40px;border:1px solid #b9ccd9;border-radius:7px;padding:7px;margin:0;background:#fff}
+#level4Content .workflow-parameter .btn{min-height:40px}
+#sequencePlcAlarm{font-weight:650;color:#825d26}

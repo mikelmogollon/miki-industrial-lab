@@ -8,6 +8,9 @@ Miki.Intervention=(()=>{
   '2:align':{title:'Ajuste de B1',zone:'Soporte del sensor, junto a la cinta.',points:['brown'],motion:true,reason:'No se desconectan conductores: se comprueba alimentación local de B1 y, de forma separada, que la cinta esté detenida antes del ajuste mecánico.'},
   '2:wire':{title:'Cable W1',zone:'Extremos de la señal: B1 BK e I0.2.',points:['black','terminal'],reason:'Se interviene sobre ambos extremos del cable. B1 puede alimentar la señal; la entrada PLC es receptora pasiva, sin realimentación en este modelo.'}
  };
+ plans['3:bsignal']={title:'Cable W2 de B2',zone:'Extremos BK de B2 e I0.3 del PLC.',points:['b2black','b2input'],reason:'Se reparan ambos extremos de señal. B2 puede aportar positivo; la entrada PLC es receptora pasiva y no realimenta el conductor.'};
+ plans['3:kcoil']={title:'Relé K2',zone:'Bobina A1–A2 y contacto NO 13–14 de K2.',points:['q2','f4out','k2out'],reason:'Sustituir K2 afecta a mando y potencia: comprobar A1 y ambos lados del contacto; A2 es el 0 V común.'};
+ plans['3:fpower']={title:'Protección F4',zone:'Entrada y salida de F4 en la potencia de M2.',points:['f4in','f4out'],reason:'Ambos lados del elemento deben verificarse tras aislar; una salida a cero debida a la avería no acredita aislamiento.'};
  const feeds={
   '1:stop':['Barra local QS1 → S0:11; I0.0 es receptor pasivo'],
   '1:fuse':['Barra local QS1 → F2:1; motor conectado a 0 V como carga'],
@@ -16,6 +19,9 @@ Miki.Intervention=(()=>{
   '2:align':['Barra local QS2 → alimentación de B1','Barra local QS2 → accionamiento de la cinta'],
   '2:wire':['B1 PNP desde la rama local → BK → W1','I0.2: entrada receptora pasiva, sin retorno de alimentación']
  };
+ feeds['3:bsignal']=['Barra local QS3 → B2 PNP → BK → W2','I0.3: receptor pasivo respecto a M'];
+ feeds['3:kcoil']=['Barra local QS3 → Q0.1 → bobina K2','Barra local QS3 → F4 → contacto K2'];
+ feeds['3:fpower']=['Barra local QS3 → F4 → contacto K2 → motor M2'];
  for(const [key,p] of Object.entries(plans)){const level=Number(key.split(':')[0]);p.reference=level===1?'supply':'source';p.isolator='QS'+level;p.sources=feeds[key]}
  const plan=s=>plans[s.level+':'+s.fault];
  function state(s){return s.procedure||(s.procedure={entered:false,before:false,beforeEpoch:-1,locked:false,epoch:null,checks:new Set(),after:false,motion:false,authorizedRepair:false,audit:[],hint:''})}
@@ -34,7 +40,7 @@ Miki.Intervention=(()=>{
    if(s.isolated&&p.locked&&p.before&&p.epoch===s.isolationEpoch&&zonesDone(s)){if(!p.after)audit(s,'Multímetro comprobado DESPUÉS en referencia conocida: '+sample.volts+' V.',{red:sample.red,black:sample.black,volts:sample.volts});p.after=true;return}
   }
   const node=sample.black==='zero'?sample.red:sample.red==='zero'?sample.black:null;
-  const canonical=k=>s.level===1&&k==='motor'?'k1out':s.level===2&&k==='brown'?'fuseOut':k;
+  const canonical=k=>s.level===1&&k==='motor'?'k1out':s.level===2&&k==='brown'?'fuseOut':s.level===3&&k==='m2'?'k2out':k;
   const required=node&&plan(s).points.find(k=>canonical(k)===canonical(node));
   if(s.isolated&&p.before&&p.locked&&p.epoch===s.isolationEpoch&&sample.epoch===s.isolationEpoch&&sample.isolated&&required&&sample.volts===0&&Miki.Simulation.snapshot(s).nodes[node]===0){
    const fresh=!p.checks.has(required);p.checks.add(required);s.absence.add(required);if(fresh)audit(s,'Ausencia local comprobada: '+Miki.levels[s.level].points[node]+' respecto a 0 V.',{point:required,measuredAt:node,epoch:p.epoch});return;
@@ -48,7 +54,7 @@ Miki.Intervention=(()=>{
   if(s.done)return {kind:'done',text:'Incidencia verificada y completada. Consulta el informe o continúa cuando quieras.'};
   if(!s.diagnosed)return {kind:'investigate',text:'Contrasta el síntoma con el esquema, las señales PLC y tus medidas antes de formular una causa.'};
   if(!p.entered)return {kind:'begin',text:'Diagnóstico confirmado. La incidencia sigue abierta: prepara la intervención antes de reparar.'};
-  if(s.repaired){if(p.locked)return {kind:'release',text:'Reparación aplicada, todavía sin verificar. Retira el bloqueo didáctico para preparar la reposición.'};if(s.isolated)return {kind:'restore',text:'Bloqueo retirado. Restablece la alimentación local; aún no se concede recompensa.'};return {kind:'verify',text:s.level===1?'Da una nueva orden de Marcha y comprueba que M1 responde.':'Presenta una nueva caja y comprueba B1, I0.2 y el contador.'}}
+  if(s.repaired){if(p.locked)return {kind:'release',text:'Reparación aplicada, todavía sin verificar. Retira el bloqueo didáctico para preparar la reposición.'};if(s.isolated)return {kind:'restore',text:'Bloqueo retirado. Restablece la alimentación local; aún no se concede recompensa.'};return {kind:'verify',text:s.level===1?'Da una nueva orden de Marcha y comprueba que M1 responde.':s.level===3?'Da una nueva orden de Marcha y espera la recepción por B3, I0.4 y el incremento único del contador.':'Presenta una nueva caja y comprueba B1, I0.2 y el contador.'}}
   if(!p.before){if(s.isolated)return {kind:'restore',text:'La zona ya estaba aislada: restablece antes de iniciar una preparación nueva y comprobar el instrumento.'};return {kind:'referenceBefore',point:reference,text:'Comprueba el multímetro en la referencia conocida de 24 V, antes del aislamiento local.'}}
   if(!s.isolated)return {kind:'isolate',text:'Instrumento comprobado. Abre QS'+s.level+' para aislar la zona local. La fuente aguas arriba y CPU siguen alimentadas.'};
   if(!p.locked)return {kind:'lock',text:'Zona aislada. Coloca el bloqueo didáctico de QS'+s.level+' para impedir la reposición durante la intervención.'};

@@ -1,0 +1,14 @@
+Miki.levels[4]={
+ id:4,model:'sequence',title:'La transferencia se queda bloqueada',installation:'CV-01 → CV-02 · secuencia supervisada',
+ objective:'Relacionar etapas, receptividades, TON y alarmas con el proceso físico para recuperar una transferencia.',
+ knowledge:['GRAFCET','Receptividades y enclavamientos','Temporizador TON','Alarmas y recuperación','Parámetros PLC'],
+ inputs:['I0.3','I0.4'],outputs:['Q0.0','Q0.1'],components:['QS4','B2','B3','W2','K1','K2','F2','F4','M1','M2'],
+ points:{source:'Fuente +24 V · antes de QS4',local:'Barra local +24 V · después de QS4',b2brown:'B2 BN · alimentación +',b2black:'B2 BK · salida PNP',b2input:'PLC I0.3 · llegada',b3brown:'B3 BN · alimentación +',b3black:'B3 BK · salida PNP',b3input:'PLC I0.4 · recepción',q1:'Q0.0 / K1:A1',q2:'Q0.1 / K2:A1',f4in:'F4:1 · entrada',f4out:'F4:2 / K2:13',k2out:'K2:14 · salida',m2:'M2 +',zero:'0 V / M · común'},
+ isolation:{label:'QS4 aísla los circuitos de campo de ambas cintas y sensores. La fuente y CPU permanecen alimentadas. La revisión de parámetros utiliza parada y bloqueo lógico didáctico.'},
+ verification:'Después de recuperar y dar una nueva Marcha, E0→E1→E2→E3→E4, B3 confirma una recepción, el contador aumenta una vez y no reaparece la alarma.',
+ faults:{
+  stuck:{name:'Salida de B3 activada sin caja',explanation:'La salida PNP de B3 permanece a 24 V sin caja en recepción. I0.4 indica ocupación y el enclavamiento impide iniciar la secuencia.',evidence:'En E0: recepción físicamente vacía, B3 activo e I0.4 = 1. BN y BK de B3 a 24 V; la receptividad de marcha no se cumple.',repair:'Inspeccionar y sustituir el sensor B3 en la zona aislada, con bloqueo y comprobaciones eléctricas pertinentes.'},
+  jam:{name:'Caja retenida en la transferencia',explanation:'M2 recibe orden y gira, pero la caja queda retenida físicamente entre B2 y B3. La falta de recepción agota la supervisión y enclava la alarma.',evidence:'En E3: M2 en marcha y caja inmóvil en la zona intermedia; B3 no detecta. TON alcanza PT con la caja retenida; revisar la captura del disparo y la inspección.',repair:'Parar, aislar, bloquear, comprobar ausencia de movimiento e inspeccionar antes de retirar el atasco simulado. Recuperar y verificar otra transferencia.'},
+  timing:{name:'PT de supervisión demasiado corto',explanation:'El mecanismo funciona y la caja avanza, pero PT = 1,2 s es inferior a los aproximadamente 2,8 s de recorrido normal de transferencia. Se produce alarma antes de llegar a B3.',evidence:'E3 y movimiento real sin obstrucción. PT = 1,2 s; captura de disparo con caja aún avanzando. Comparar PT con el tiempo normal y revisar las condiciones del TON.',repair:'Parar y bloquear el rearranque didáctico, revisar temporización y proceso, seleccionar PT de 4, 5 o 6 s y aplicar la configuración antes de recuperar.'}
+ }
+};

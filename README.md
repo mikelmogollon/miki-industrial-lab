@@ -1,47 +1,50 @@
-# MIKI Industrial Lab · v0.3.4 — esquemas eléctricos
+# MIKI Industrial Lab · v0.6.0 · Revisión local
 
-Entrega local para revisión, basada exclusivamente en el ZIP v0.3.3 recibido del usuario. No se ha publicado ni modificado GitHub. Conserva los dos niveles y seis averías; no se crea el nivel 3.
+Cinco niveles y quince averías. La nueva estación clasifica cajas al final de CV-02 mediante B4/B5, EV1, Y1 y un cilindro A1 de doble efecto. Electricidad, presión, posiciones, PLC y GRAFCET proceden del mismo modelo simulado.
 
-## Probar
+## Ejecutar
 
 1. Extrae el ZIP completo en una carpeta nueva.
-2. Abre `index.html` en tu navegador. Mantén juntas las carpetas `css`, `js` y `levels`.
+2. Abre **index.html** con tu navegador. Mantén juntas las carpetas **css**, **js** y **levels**.
+3. Selecciona **Práctica libre** y **05 Clasificación electroneumática** para probar directamente el nivel nuevo.
 
-No requiere instalar paquetes, cuentas, compilación ni conexión. Alternativa si tienes Node: ejecuta `node preview.cjs` en esta carpeta y visita <http://127.0.0.1:4185>. Ctrl+C detiene el servidor.
+No requiere instalación de paquetes, compilación, cuenta, pago ni conexión a Internet. Si tienes Node puedes ejecutar **node preview.cjs** desde esta carpeta y abrir **http://127.0.0.1:4190/**. Ctrl+C detiene la vista local.
 
-El progreso se guarda en el navegador y origen utilizados. Archivo local, servidor local y GitHub Pages pueden tener almacenamientos distintos. Usa «Exportar progreso» antes de cambiar de ubicación. La clave y formato de almacenamiento de v0.3.3 se conservan.
+## El nivel 5
 
-## Revisar
+- La caja alta se desvía mediante A1; la baja sigue recta sin activar Y1. El selector y **Preparar caja seleccionada** permiten comparar ambos comportamientos cuando el ciclo está preparado o completado.
+- Cada caso contiene un único fallo inicial. La verificación de la incidencia exige **reparación y una caja alta nueva**, con extensión, confirmación a1 y retorno confirmado por a0. Pasar una caja baja sin reparar sirve como contraste, pero no resuelve la avería ni concede XP.
+- Usa **Secuencia PLC / GRAFCET**, **PLC online**, **Registro**, el esquema eléctrico y el multímetro. **Esquema neumático** añade presión, cámaras del cilindro y posiciones de EV1.
+- El multímetro mide diferencia de potencial en **V CC**. P5 mide presión en **bar**. Una salida PLC activa no garantiza accionamiento magnético, presión ni movimiento.
+- Selecciona componentes para relacionar ubicación, función, esquema y señales. El resaltado indica selección o señal; no identifica automáticamente la causa.
+- La captura de alarma conserva el instante del disparo. El cilindro puede haber retornado después: compara la captura con la posición y el TON en directo.
+- Paro retira Y1. EV1 vuelve por muelle y, con aire disponible, A1 puede retraerse. No confundir Paro con inmovilización ni cerrar V5 con descargar la presión.
+- Sigue la guía de intervención. Los casos eléctricos incluyen instrumento antes/después y conductores; el ajuste neumático utiliza manómetro, descarga, aseguramiento e inspección, sin medidas eléctricas irrelevantes.
 
-- Un esquema continuo por nivel, dividido visualmente en zonas.
-- Pulsa K1 para relacionar bobina y contacto en azul. Los bornes ámbar siguen colocando las puntas roja y negra.
-- B1 relaciona alimentación por F3, retorno BU y salida BK hacia I0.2 mediante W1.
-- «Localizar en la planta» identifica el componente y abre su ficha existente cuando tiene representación física.
-- «Ampliar esquema» conserva el caso, las puntas y la lectura. Multímetro a la derecha en escritorio; herramientas apiladas y plano desplazable en móvil.
-- PLC, Registro y Diagnóstico conservan sus pestañas independientes.
+La mesa mantiene sus herramientas y desplazamientos independientes. Puedes ampliar planta y esquema; Escape cierra la ampliación. En pantallas pequeñas, **Ir al esquema / Ir a herramientas** navega por la mesa; los dibujos amplios tienen desplazamiento horizontal propio.
 
-## Documentación y capturas
+## Carrera y respaldo
 
-- [Cambios y criterios eléctricos](docs/cambios.md)
-- [Pruebas ejecutadas](docs/pruebas.md)
+El nivel 5 se desbloquea tras dos causas distintas del nivel 4. Tres causas completan el dominio. Se conservan XP por mejor marca, rangos, insignias e historial; repetir solo concede la mejora sobre la marca anterior. Práctica no modifica Carrera.
+
+La clave y los datos anteriores se conservan; se añaden metadatos compatibles de accesos e itinerario. El progreso pertenece al navegador y origen utilizados: una dirección local, un puerto o una ubicación de archivo distintos pueden tener almacenes diferentes. **Exportar progreso** permite guardar un respaldo JSON; no se añade un importador. La recarga conserva Carrera y reinicia las incidencias en curso. El ZIP no contiene el progreso de ensayo del navegador.
+
+Respaldo íntegro: **original/MIKI_Lab_v0.5.0_Revision.zip**. Se conserva también la documentación de v0.5.0 en **original/documentacion-v050/** y sus materiales históricos. No se han modificado GitHub ni la web pública.
+
+## Revisión de arquitectura
+
+Identidades permanentes separadas del orden formativo, accesos anteriores preservados y ayudas neumáticas reforzadas. El orden original se mantiene. Véase [revisión de arquitectura](docs/revision-arquitectura.md).
+
+## Documentación
+
+- [Cambios](docs/cambios.md)
+- [Arquitectura y secuencia del nivel 5](docs/arquitectura-v060.md)
+- [Señales eléctricas, neumática y límites del modelo](docs/senales-neumatica.md)
+- [Pruebas efectivamente ejecutadas](docs/pruebas.md)
 - [Publicar después de aprobar](docs/publicar.md)
+- Capturas nuevas: **screenshots-v060/**. Las carpetas anteriores son históricas.
+- Comparación de integridad: **audit-v050.json**.
 
-`screenshots/` contiene nivel 1 ampliado, relaciones K1, nivel 2 ampliado, sensor B1, localización física y móvil.
+Con Node, sin instalar dependencias: **node --test tests/*.test.cjs**. Resultado final: **92 pruebas superadas, 0 fallos**.
 
-## Respaldo e integridad
-
-`original/MIKI_Lab_v0.3.3.zip` es copia íntegra del recibido. SHA-256:
-
-`3468447A7DD3D3650792CFED6907F350464945F7C743EFE9ACA2C39C8F1AA359`
-
-`audit-v033.json` compara los archivos con ese ZIP. Además del README, solo cambian tres archivos preexistentes: `index.html`, `js/ui.js` y `js/schematics.js`. Se añaden estilos de esquemas, documentación, pruebas y capturas. Planta, simulación, mediciones, intervención, progresión y almacenamiento conservan su contenido original.
-
-## Pruebas automáticas
-
-Con Node, sin dependencias adicionales:
-
-```text
-node --test tests/intervention.test.cjs tests/schematics.test.cjs
-```
-
-Simulación educativa: no constituye un plano completo de instalación ni una certificación normativa. Se mantienen las limitaciones didácticas anteriores.
+Simulación educativa web. No es un proyecto TIA Portal, una certificación normativa ni un procedimiento autorizado para intervenir sobre equipos eléctricos o neumáticos reales.
